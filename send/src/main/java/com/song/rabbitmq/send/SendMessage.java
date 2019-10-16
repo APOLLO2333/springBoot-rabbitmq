@@ -15,7 +15,7 @@ public class SendMessage {
     public void send(String msg) {
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         rabbitTemplate.convertAndSend("spring-boot-exchange", // exchange：交换机
-                "foo.bar.#", // routing-key
+                "foo.bar.baz", // routing-key
                 msg, // 消息体内容
                 correlationData); // 消息唯一ID
     }

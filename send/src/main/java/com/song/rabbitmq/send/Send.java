@@ -14,7 +14,7 @@ public class Send {
     @GetMapping("/send")
     @ResponseBody
     public String send() {
-        sendMessage.send("test");
+        sendMessage.send("Hello World !");
         return "success";
     }
 }
