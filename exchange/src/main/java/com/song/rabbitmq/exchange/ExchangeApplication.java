@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class ExchangeApplication {
 
-    //    public static final String DirectExchangeName = "spring-boot-DirectExchange";
+//        public static final String ExchangeName = "spring-boot-DirectExchange";
 //    public static final String ExchangeName = "spring-boot-FanoutExchange";
     public static final String ExchangeName = "spring-boot-TopicExchange";
-    //    public static final String queueNameA = "Direct_A";
+//        public static final String queueNameA = "Direct_A";
 //    public static final String queueNameA = "Fanout_A";
 //    public static final String queueNameB = "Fanout_B";
     public static final String queueNameA = "Topic_A";
@@ -28,12 +28,11 @@ public class ExchangeApplication {
     Queue queueB() {
         return new Queue(queueNameB, false);
     }
-
     @Bean
     Queue queueC() {
         return new Queue(queueNameC, false);
     }
-
+//
 //    @Bean
 //    DirectExchange exchange() {
 //        return new DirectExchange(ExchangeName);
@@ -48,16 +47,21 @@ public class ExchangeApplication {
     TopicExchange exchange() {
         return new TopicExchange(ExchangeName);
     }
+
+//    @Bean
+//    Binding bindingA(Queue queue, DirectExchange exchange) {
+//        return BindingBuilder.bind(queue).to(exchange).with("song.direct.#");
+//    }
+
+//    @Bean
+//    Binding bindingA(@Qualifier("queueA") Queue queue, FanoutExchange exchange) {
+//        return BindingBuilder.bind(queue).to(exchange);
+//    }
 //
 //    @Bean
-////    Binding bindingA(@Qualifier("queueA") Queue queue, FanoutExchange exchange) {
-////        return BindingBuilder.bind(queue).to(exchange);
-////    }
-////
-////    @Bean
-////    Binding bindingB(@Qualifier("queueB") Queue queue, FanoutExchange exchange) {
-////        return BindingBuilder.bind(queue).to(exchange);
-////    }
+//    Binding bindingB(@Qualifier("queueB") Queue queue, FanoutExchange exchange) {
+//        return BindingBuilder.bind(queue).to(exchange);
+//    }
 
 
     @Bean
